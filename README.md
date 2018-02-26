@@ -22,6 +22,6 @@ Aus den Daten wurden Resultate erarbeitet und einer Diskussion unterzogen, ein F
 
 Die Thesis wurde als Poster zusammengefasst:
 
-![alt text](https://github.com/denisbittante/DINF-BT-K/blob/master/_Poster/PosterOSRE.png "Poster OSER"
+![alt text](https://github.com/denisbittante/DINF-BT-K/blob/master/_Poster/PosterOSRE.png) "Poster OSER"
 
 
