@@ -18,10 +18,10 @@ Der folgende Aufbau ist in dieser Arbeit vorzufinden:
 
 Die Grundlagen zum Thema performance wird im Kapitel Grundlagen erarbeitet. 
 Da es sich in dieser Arbeit um eine empirische engineering Arbeit handelt, wurde ein Prototyp evaluiert und einer Performance-Messung unterzogen, die vorgehensweise dieser Beobachtung wurde im Kapitel Evaluation erläutert. 
-Aus den Daten wurden Resultate erarbeitet und einer Diskussion unterzogen, ein Fazit rundet das ganze ab. 
+Aus den Daten wurden Resultate erarbeitet und einer Diskussion unterzogen, ein Fazit rundet das Ganze ab. 
 
 Die Thesis wurde als Poster zusammengefasst:
 
-![alt text](https://github.com/denisbittante/DINF-BT-K/blob/master/_Poster/PosterOSRE.png) "Poster OSER"
+![alt text](https://github.com/denisbittante/DINF-BT-K/blob/master/_Poster/PosterOSRE.png) "Poster OSRE"
 
 
