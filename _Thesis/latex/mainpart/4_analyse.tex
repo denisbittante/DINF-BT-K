@@ -38,12 +38,12 @@ Die Abbildung \ref{figure:throughputBytesAll} zeigt, dass der Durchsatz in Bytes
 
 
 % Diskussion verschoben werden
-JasperReports generiert im Vergleich zu den anderen OSREs weitaus kleinere PDFs. Die Kontaktliste, eine Liste mit Kontaktdaten und einem Gender-Symbol, die im Szenario 3 generiert wird, verarbeitet JasperReports besser als die anderen OSREs. Es scheint, als ob die Bilder referenziert und komprimiert würden. Dies ist mithilfe der vorkompilierten Templates möglich. Das mit JasperReports generierte PDF ist etwa 46KB gross, das mit Apache PDF-Box generierte PDF ist etwa 730KB gross. Etwas besser ist die Komprimierung bei iText, mit dem das PDF etwa 350 KB gross wird. 
-Dies bedeutet zwar, dass der Durchsatz nicht vergrössert wurde, doch die generierten Files nutzten dennoch die Bandbreite des verfügbaren Netzwerkes. Wie gross die Bandbreite eines Webservice ist und welche Netzwerkverbindung den Engpass darstellte, konnte nicht festgestellt werden. 
+JasperReports generiert im Vergleich zu den anderen OSREs weitaus kleinere PDFs. Die Kontaktliste, eine Liste mit Kontaktdaten und einem Gender-Symbol, die im Szenario 3 generiert wird, verarbeitet JasperReports besser als die anderen OSREs. Es scheint, als ob die Bilder referenziert und komprimiert würden. Dies ist mithilfe der vorkompilierten Templates möglich. Das mit JasperReports generierte PDF ist etwa 46KB gross, das mit Apache PDF-Box generierte PDF ist etwa 730KB gross. Etwas besser ist die Komprimierung bei iText, mit dem das PDF etwa 350 KB gross wird. Dies bedeutet zwar, dass der Durchsatz nicht vergrössert wurde, doch die generierten Files nutzten dennoch die Bandbreite des verfügbaren Netzwerkes. Wie gross die Bandbreite eines Webservice ist und welche Netzwerkverbindung den Engpass darstellte, konnte nicht festgestellt werden. 
 
 
 \subsection{Latency}
 %Min / Max Average --> Vergleichen mit anderen Projekten wer hat die kürzeste Latenz wer die längste
+
 Die Latenzzeit, die in der Abbildung \ref{figure:latencyTestcycle} dargestellt wird, ist die Zeit, die der Service gebraucht hat, um die Anfrage zu bearbeiten, samt Netzwerkzeit. 
 
 % Diskussion
@@ -58,8 +58,7 @@ Diese Grafik korreliert klar mit der Analyse der Durchsätze. Der Durchsatz stei
 
 
 
-Auch hier kommen iText und Apache PDFBox bei den meisten Szenarien mit weniger als einer Sekunde aus. Doch es sind auch Ausnahmen festzustellen, wie beim Szenario 1b bei iText und im Szenario 3 bei Apache PDFBox. 
-Diese Latenzzeiten sind keine Aussage zur Netzwerklatenz, die reine Zeit, die verbraucht wird, bis eine Nachricht vom Sender zum Empfänger übermittelt wurde. Diese Zeit gibt die reine Antwortzeit des Service wieder. Auch bei Abbildung \ref{figure:latencySzenario} vergrössert sich die Latenz wegen der Verarbeitungszeit während des Szenarios 3. JasperReports zeigt dabei eine überdurchschnittliche Latenzzeit während der ersten beiden Szenarien.
+Auch hier kommen iText und Apache PDFBox bei den meisten Szenarien mit weniger als einer Sekunde aus. Doch es sind auch Ausnahmen festzustellen, wie beim Szenario 1b bei iText und im Szenario 3 bei Apache PDFBox. Diese Latenzzeiten sind keine Aussage zur Netzwerklatenz, die reine Zeit, die verbraucht wird, bis eine Nachricht vom Sender zum Empfänger übermittelt wurde. Diese Zeit gibt die reine Antwortzeit des Service wieder. Auch bei Abbildung \ref{figure:latencySzenario} vergrössert sich die Latenz wegen der Verarbeitungszeit während des Szenarios 3. JasperReports zeigt dabei eine überdurchschnittliche Latenzzeit während der ersten beiden Szenarien.
 % Diskussion
 %% Der Serviec ist in den USA ist die Netzwerklatenz so gross um Hunderte oder sogar tausende von Antworten zu stoppen ? 
 
@@ -71,7 +70,8 @@ Diese Latenzzeiten sind keine Aussage zur Netzwerklatenz, die reine Zeit, die ve
 
 \subsection{Verfügbarkeit}
 
-Der Service soll auch über die Zeit hinweg möglichst verfügbar bleiben. Dies ist ebenfalls ein wichtiger Performance-Indikator. Während der Tests hat keiner der Services über den Testlauf von rund drei Stunden einen Absturz gehabt oder ist unerreichbar gewesen. Die Prototypen waren im Verlauf der Tests meist aktiv geblieben, was aber nicht heisst, dass ein User diese auch als verfügbar empfunden hätte. Hätte man diese Prototypen in einer Produktionsumgebung eingesetzt, wäre der User wohl des Öfteren mit längeren Wartezeiten konfrontiert gewesen. Die Latenzzeiten, die im vorhergehenden Kapitel erwähnt wurden, wären auch hier ein Thema. In der Abbildung \ref{figure:latencySLA2000} wird ersichtlich, wie viel Prozent der Anfragen an die entsprechenden Services länger gedauert hätten als 2 Sekunden.
+Der Service soll auch über die Zeit hinweg möglichst verfügbar bleiben. Dies ist ebenfalls ein wichtiger Performance-Indikator. Während der Tests hat keiner der Services über den Testlauf von rund drei Stunden einen Absturz gehabt oder ist unerreichbar gewesen. Die Prototypen waren im Verlauf der Tests meist aktiv geblieben, was aber nicht heisst, dass ein User diese auch als verfügbar empfunden hätte. Hätte man diese Prototypen in einer Produktionsumgebung eingesetzt, wäre der User wohl des Öfteren mit längeren Wartezeiten konfrontiert gewesen. 
+Die Latenzzeiten, die im vorhergehenden Kapitel erwähnt wurden, wären auch hier ein Thema. In der Abbildung \ref{figure:latencySLA2000} wird ersichtlich, wie viel Prozent der Anfragen an die entsprechenden Services länger gedauert hätten als 2 Sekunden.
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{mainpart/4_analyse_img/latencySLA2000.png}
@@ -101,10 +101,8 @@ Apache PDFBox zeigt hingegen wieder, dass die Verarbeitung der Reports im Szenar
 Welche Auswirkung die Test auf dem Webservern haben wird in den folgenden Kapitel behandelt. 
 
 \subsection{Arbeitsspeicher}
-Aus den Performance-Messungen konnte der Verbrauch auf der PaaS geloggt werden und ist in der Abbildung \ref{figure:memorytestlauf} zu sehen. 
-Die Memoryauslastung steigt bei der Ausführung der Performancetests und sinkt bei der Ausführung des GC oder einem Neustart des Webservers (Dynos). Die Dynos sind als Standard-X2 definiert, was bedeutet, dass die maximale Auslastung auf den Memory RSS auf 1024MB beschränkt ist. Dies bedeutet, dass die Auslastung auf dem Memory begrenzt ist und jede weitere Verarbeitung auf den SWAP ausgelagert wird. 
-Die Abbildung \ref{figure:memorytestlauf} zeigt diese Phänomene. iText nutzte nur wenig SWAP und konnte in den Performancetests mit RSS Memory meist alle Anfragen bearbeiten. Ein Teil der Anfragen wurde dennoch im Szenario 3 im SWAP ausgelagert. 
-Nach einem Restart des Webservices wurde JasperReports genutzt. Diese ORSE nutzte bereits das verfügbare Memory im ersten Szenario. Das Memory auf dem SWAP konnte über alle Szenarien hinweg nicht freigegeben werden, was zu einem Aufblasen des Memoryverbrauchs führte. JasperReports erreichte im Testlauf einen totalen Memoryverbrauch von 1389.32MB. Apache PDFBox erreichte im Testlauf die Memory-Quota kaum.
+
+Aus den Performance-Messungen konnte der Verbrauch auf der PaaS geloggt werden und ist in der Abbildung \ref{figure:memorytestlauf} zu sehen. Die Memoryauslastung steigt bei der Ausführung der Performancetests und sinkt bei der Ausführung des GC oder einem Neustart des Webservers (Dynos). Die Dynos sind als Standard-X2 definiert, was bedeutet, dass die maximale Auslastung auf den Memory RSS auf 1024MB beschränkt ist. Dies bedeutet, dass die Auslastung auf dem Memory begrenzt ist und jede weitere Verarbeitung auf den SWAP ausgelagert wird. Die Abbildung \ref{figure:memorytestlauf} zeigt diese Phänomene. iText nutzte nur wenig SWAP und konnte in den Performancetests mit RSS Memory meist alle Anfragen bearbeiten. Ein Teil der Anfragen wurde dennoch im Szenario 3 im SWAP ausgelagert. Nach einem Restart des Webservices wurde JasperReports genutzt. Diese ORSE nutzte bereits das verfügbare Memory im ersten Szenario. Das Memory auf dem SWAP konnte über alle Szenarien hinweg nicht freigegeben werden, was zu einem Aufblasen des Memoryverbrauchs führte. JasperReports erreichte im Testlauf einen totalen Memoryverbrauch von 1389.32MB. Apache PDFBox erreichte im Testlauf die Memory-Quota kaum.
 
 
 
@@ -118,11 +116,14 @@ Nach einem Restart des Webservices wurde JasperReports genutzt. Diese ORSE nutzt
 
 
 \subsection{Prozessor Last}
+
 Der Verbrauch des \acrshort{cpu} ist eine etwas schwierige Messgrösse. Die \acrlong{paas} hat diese Daten mit der Stichprobengrösse von einer Minute in die Logs geschrieben.
 
 Dabei ist natürlich zu erkennen, dass sich im Textzyklus von iText  die Auslastung je nach Szenario sehr stark unterscheidet. Z.B. sind während des zweiten Szenarios durchschnittlich zwischen vier und sieben Prozessoren im Status 'Ready' pendent gewesen. Hingegen sind im dritten Szenario fast immer alle Prozessoren in Ausführung gewesen, das bedeutet eine fast optimale Auslastung des CPUs mit wenigen wartenden Prozessen. Diese sind wohl so entstanden, da die Prozesse im dritten Szenario langläufiger waren und somit wenig neue Anfragen verarbeitet wurden.
 
 JasperReports hat den CPU eher gefordert und hat über den ganzen Zeitraum viele Prozesse gebraucht. Wie intensiv die Verarbeitung von JasperReports im Vergleich zu den anderen OSREs ist, wird hier klar hervorgehoben
+
+
 
 Apache PDFBox ist hier als sehr sparsam zu erkennen. Es wurden maximal fünf Prozesse ausgelagert. 
 \begin{figure}[!hb]
@@ -136,12 +137,10 @@ Apache PDFBox ist hier als sehr sparsam zu erkennen. Es wurden maximal fünf Pro
 
 \section{Reporting Engines - Verhalten}
 
-
 Die OSREs haben sich während des Tests in Bezug auf die Lastveränderung verschieden verhalten. In diesem Kapitel sollen die Veränderungen von Requestgrössen und die Zunahme von virtuellen Usern (\acrshort{vu}) weiter aufgezeigt werden.
 
 
 \subsection{Requestgrösse}
-
 Im Vergleich zu den Szenarien 1a, 2a und 3a wurden bei den Szenarien 1b, 2b und 3b die Datensätze für die Verarbeitung verdreifacht. Wie den Abbildungen \ref{figure:vglABRequ} entnommen werden kann, hat dies dazu geführt, dass sich alle Antwortzeiten und Durchsätze verschlechtert haben
 
 \begin{figure}[!hb]
@@ -169,6 +168,7 @@ Die Prototypen wurden von den initialen 20 \acrshort{vu} im Szenario 'a' weiter 
 
 Einige der interessanten Erkenntnisse in diesem Zusammenhang können bei Apache PDF-Box entdeckt werden. Obwohl die Nutzerlast steigt, steigt auch der Durchsatz im Szenario 1 von 106 auf 151 Anfragen pro Sekunde. Die Antwortzeit verdoppelt sich aber dabei. Ähnliches ist auch im zweiten Szenario zu beobachten. Beim Kreuzvergleich mit der Zunahme der zu verarbeitenden Daten (Abbildung \ref{figure:vglABRequ}) sieht man klar, dass diese im Durchsatz einen deutlichen Einbruch erleben, aber die Antwortzeit gleich bleibt. Apache PDFBox hat klar Mühe mit dem Szenario 3. Die Antwortzeit verdreifacht sich dabei, wobei der Durchsatz gleich bleibt.
 
+
 iText scheint in der Implementation der ersten zwei Szenarien ein ähnliches Verhalten unter Last zu erzeugen. Die Antwortzeit wird im ersten Szenario viermal langsamer, im Szenario 2 dreimal langsamer. Auch iText schafft es, seinen Durchsatz zu verbessern, und zwar werden drei Antworten mehr pro Sekunde verarbeitet. Szenario 3 hat ähnliche Probleme wie Apache PDFBox. Die Antwortzeiten verdreifachen sich und der Durchsatz bleibt auch bei iText etwa konstant.
 
 JasperReports verschlechtert sich in allen Antwortzeiten, aber nicht ganz so extrem wie iText und Apache PDFBox. In allen Szenarien verschlechtern sich die Antwortzeiten. Bei allen Szenarien wurde JasperReports etwa doppelt so langsam. Was den Durchsatz anbelangt, blieb dieser fast konstant, im Szenario 1 wurde dieser ebenfalls etwas höher (2 Anfragen pro Sekunde mehr).
@@ -177,6 +177,7 @@ JasperReports verschlechtert sich in allen Antwortzeiten, aber nicht ganz so ext
 
 
 \section{Ursachenanalyse}
+
 
 Im Szenario 3 konnte man den Rückgang von iText und Apache PDFBox erkennen. Es lässt sich anhand der Ergebnisse der verschiedenen Metriken die Schlussfolgerung ziehen, dass der Durchsatz nicht durch eine Netzwerk- oder Infrastrukturstörung herbeigeführt wurde. Es ist fraglich, ob diese schlechte Performance einen Zusammenhang mit anderen nicht beinflussbaren Einflussfaktoren hat. Dennoch zeigt sich einerseits, dass die Implementierung im Zusammenhang mit dem Szenario 3 zur Generierung von vergleichsweise grossen PDFs führte. Andererseits sind Aufbau und Layout bei iText und Apache PDFBox mit mehr Rechenleistung verbunden. Apache PDFBox zeigt bei der Last auf dem PaaS-Provider eine höhere Last bei der Ausführung des Szenarios 3. iText wiederum zeigt keine Zunahme, sondern sogar einen Rückgang der CPU-Last.
 

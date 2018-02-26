@@ -9,7 +9,7 @@ Ob ein Framework oder ein OSRE performant ist, kann kaum der Literatur entnommen
 
 Für die Evaluation wurde bestimmt, die Prototypen abwechslungsweise auf die PaaS einzusetzen, um diese separat voneinander analysieren zu können. Gegen die eingesetzten Prototypen wurden automatische Lasttest durchgeführt. Da die Performance-Messungen mehrmals zu erheben waren, wurde vorgängig ein Testplan erstellt. Damit konnten die Tests vorgängig konfiguriert und automatisiert durchgeführt werden. Die wichtigsten Performance-Messungen wurden einerseits mit dem Testtool JMeter generiert und andererseits mithilfe der Logs auf der PaaS erhoben. Dank der Konsolidierung dieser Dateien konnten Rückschlüsse auf die Performance gezogen werden.
 
-Die Evaluation gliedert sich in drei Teile  (siehe Abbildung \ref{figure:evaluationsAblauf}).Diese Teile werden in den folgenden Kapiteln näher erläutert.
+Die Evaluation gliedert sich in drei Teile (siehe Abbildung \ref{figure:evaluationsAblauf}). Diese Teile werden in den folgenden Kapiteln näher erläutert.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{mainpart/3_methodik_evaluation_img/Testablauf.png}
@@ -23,12 +23,12 @@ In der Phase Vorbereitung geht es darum, die Prototypen zu erstellen sowie den T
 Im Testplan müssen verschiedene Parameter definiert werden. Wie diese gewählt werden, bestimmt der Anwendungsfall, der hier behandelt wird.
 
 \subsection{Last-Strategie}
-Eine Nutzergruppe kann auf ein produktives System verschiedene Last-Muster generieren. Dabei gelingt es den Usern, durch den Ansturm auch grosse Rechenzentren lahmzulegen. Ob alle User gleichzeitig wie z.B. beim Vorverkauf von Konzertkarten beim gebotenen Service anmelden oder gestaﬀelt, ist für ein System durchaus wichtig, denn je nach Service kann dieser sich mit der Anzahl Anfragen den neuen Umständen anpassen und horizontal skalieren, also die Last auf viele verschiedene Server verteilen.
+Eine Nutzergruppe kann auf ein produktives System verschiedene Last-Muster generieren. Dabei gelingt es den Usern, durch den Ansturm auch grosse Rechenzentren lahmzulegen. Ob alle User gleichzeitig wie z.B. beim Vorverkauf von Konzertkarten beim gebotenen Service anmelden oder gestaffelt, ist für ein System durchaus wichtig, denn je nach Service kann dieser sich mit der Anzahl Anfragen den neuen Umständen anpassen und horizontal skalieren, also die Last auf viele verschiedene Server verteilen.
 
 \subsection{Ramp-Up}
 Bei den durchgeführten Lasttest wurde die Infrastruktur nicht skaliert, dennoch wurde eine Ramp-Up von 10 Sekunden definiert, was bedeutet, dass die gesamte Menge der virtuellen User nach 10 Sekunden auf dem System aktiv Last erzeugen. Dieses Szenario wurde gewählt, da in der Praxis fast nie Systeme gleich vollständig ausgelastet werden.
 
-Da es in diesen Experimenten darum geht, verschiedene Anwendungen und deren Frameworks zu evaluieren, wurde eine fixe Anzahl User definiert, die sich über 10 Sekunden hinweg alle zuschalten und 10 Minuten lang auf dem System ’arbeiten’. Somit variieren diese über den Test hinweg nicht mehr. Diese Strategie wurde gewählt, da es einfacher ist, die Messungen zu evaluieren, und die Performance-Messungen zuverlässiger gesammelt werden können. 
+Da es in diesen Experimenten darum geht, verschiedene Anwendungen und deren Frameworks zu evaluieren, wurde eine fixe Anzahl User definiert, die sich über 10 Sekunden hinweg alle zuschalten und 10 Minuten lang auf dem System 'arbeiten'. Somit variieren diese über den Test hinweg nicht mehr. Diese Strategie wurde gewählt, da es einfacher ist, die Messungen zu evaluieren, und die Performance-Messungen zuverlässiger gesammelt werden können. 
 
 \subsection{Last}
 Ein Service kann auf verschiedene Arten belastet werden. Einserseits, was öfter vorkommt, ist es das Ansteigen der aktiven User auf dem System. Diese Last wird meist über einen Scale out der Server behoben. Was ebenfalls vorkommt, ist, dass die Last auf dem Service durch grössere Anfragen gefordert wird, d.h. dass Requestgrössen ansteigen. Das kann z.B bei Services, die eine Bestandeslieferung von Einwohnern entgegennehmen, der Fall sein. Diese Anfrage nimmt oft jährlich zu, oder es ist auch möglich, dass grössere Gemeinden als Kunden dazugezählt werden dürfen. 
@@ -48,7 +48,7 @@ Der Basisplan kann im Anhang gefunden werden oder unter:
 \section{Test Durchführung}
 
 
-Um die Performance einzelner Implementationen testen zu können, wurde eine Serie von Tests erstellt. Die Performancetests spiegeln die Anforderungen an die Services wieder. Dabei wurden verschiedene Parameter verändert, die in der Praxis ebenfalls anzutreﬀen sind. Im Folgenden werden diese erläutert.
+Um die Performance einzelner Implementationen testen zu können, wurde eine Serie von Tests erstellt. Die Performancetests spiegeln die Anforderungen an die Services wieder. Dabei wurden verschiedene Parameter verändert, die in der Praxis ebenfalls anzutreffen sind. Im Folgenden werden diese erläutert.
 
 \subsection{JMeter}
 
@@ -56,7 +56,7 @@ Um die Performance einzelner Implementationen testen zu können, wurde eine Seri
 Um die definierten Testszenarien durchzuführen, wurde das Open Source Tool Apache JMeter (v.3.3) genutzt. Es gibt eine ganz Reihe von Lasttest- und Performancetest-Software auf dem Markt wie HP LoadRunner, Silk Performer, LoadUI und viele mehr. JMeter wurde ausgewählt, da es ein kostenloses und das am meisten genutzte Last- und Performance-Tool ist. Das Tool unterstützt eine Reihe verschiedener Protokolle, unter anderem REST, was für dieses Experiment genutzt wurde. Die Testszenarien wurden im "Non-GUI oder "headless"-Mode durchgeführt. Dieser dient dazu, intensive Testreihen in einer \acrshort{cli}-Umgebung durchzuführen. Um die Tests durchzuführen, wurde für das Speichern der Ergebnisse folgendes Skript erstellt:
 
 \begin{lstlisting}[language=command.com]
-           
+
 @echo off
 for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
 set "YY=%dt:~2,2%" & set "YYYY=%dt:~0,4%" & set "MM=%dt:~4,2%" & set "DD=%dt:~6,2%"
@@ -73,7 +73,7 @@ jmeter -n -t C:/sandbox/dinf/dinf/loadtest/jmeter/LoadTest-TIMED.jmx -l C:/sandb
 
 
 \begin{reference}{JMeter}
-JMeter ist ein Open Source Tool und kann direkt bei Apache heruntergeladen werden.  \newline
+JMeter ist ein Open Source Tool und kann direkt bei Apache heruntergeladen werden. \newline
 \url{http://jmeter.apache.org/}
 \end{reference}
 
@@ -146,7 +146,7 @@ Der Log Extractor kann hier gefunden werden:  \url{https://github.com/denisbitta
 \subsection{JMeter Testresultate}
 
 
-Die Ergebnisse von JMeter können wiederum im selben Tool im Gui-Modus gelesen und ausgewertet werden. Dazu bietet JMeter verschiedene Auswertungmethoden an. Einerseits können Plug-In’s weitere Aufbereitungsmethoden zur Verfügung stellen, oder sonst sind mit JMeter bereits ein Dutzend Aggregatoren und grafische Tools mit dabei. Des Weiteren wurde Microsoft Word genutzt, um die Daten in grafischer Form aufzubereiten.
+Die Ergebnisse von JMeter können wiederum im selben Tool im Gui-Modus gelesen und ausgewertet werden. Dazu bietet JMeter verschiedene Auswertungmethoden an. Einerseits können Plug-In’s weitere Aufbereitungsmethoden zur Verfügung stellen, oder sonst sind mit JMeter bereits ein Dutzend Aggregatoren und grafische Tools mit dabei. Des Weiteren wurde Microsoft Excel genutzt, um die Daten in grafischer Form aufzubereiten.
 
 \begin{reference}{Konsolidierte Daten}
 Die Konsolidierten Daten können hier heruntergeladen werden:  \url{https://github.com/denisbittante/dinf/tree/master/loadtest/results}
