@@ -24,4 +24,12 @@ Die Thesis wurde als Poster zusammengefasst:
 
 ![alt text](https://github.com/denisbittante/DINF-BT-K/blob/master/_Poster/PosterOSRE.png "Poster OSRE")
 
+Hier die Thesis : 
+
+<object data="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF (3).pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF (3).pdf">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
 
