@@ -1,5 +1,5 @@
 # Performance-Evaluation von Open Source Reporting Engine
-## Bachelor Thesis 
+* Bachelor Thesis 
 
 ## Fragestellungen 
 
