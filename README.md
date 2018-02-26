@@ -28,7 +28,7 @@ Hier die Thesis :
 
 <object data="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf" type="application/pdf" width="700px" height="700px">
     <embed src="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf">
-        This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf"</a>.</p>
+        This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf"</a> Thesis.</p>
     </embed>
 </object>
 
