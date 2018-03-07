@@ -9,7 +9,7 @@
 \usepackage{graphicx}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{makeidx}
-\usepackage[acronym]{glossaries}
+\usepackage[acronym,nonumberlist]{glossaries}
 \usepackage{float}
 \usepackage{dirtytalk}
 \usepackage{bera}
@@ -26,6 +26,11 @@
 \usepackage[tikz]{bclogo}
 \usepackage{tikz}
 \usepackage{pdfpages}
+
+
+%%%%% Header 
+
+
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \renewcommand{\familydefault}{\sfdefault}
@@ -154,6 +159,8 @@
 %%%%%Dokument beginnt hier: %%%%%
 \begin{document}
 
+
+
 \pagenumbering{gobble}
 
 \dokumentTyp{Bachelor-Thesis}
@@ -168,13 +175,11 @@
 Departement Informatik\\
 Departementsleiter } 
 
-\dedication{}
+%\dedication{}
 
 
 % Setzt das Zitatsquelle in eckigen Klammern [1] und nicht (1)
 \setcitestyle{square}
-
-
 
 %% Titelblatt 
 \maketitle
@@ -185,16 +190,29 @@ Departementsleiter }
 \pagestyle{headings}    % wieder auf normale Seitenrahmen zurück schalten
 
 \pagenumbering{Roman}  
-%% Abstract Zusammenfassung und Ergebnis darzustellen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%             Zusammenfassung / Abstract           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subfile{0_abstract}
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%             Inhaltsverzeichnis          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \tableofcontents	% Inhaltsverzeichnis erstellen
-%\listoftables		% Tabellenverzeichnis erstellen
-\cleardoublepage	% min. eine Freiseite
+%\cleardoublepage	% min. eine Freiseite
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%             Abkürzungen          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%need to compile this ones: 
+\printglossary
+\printglossary[type=\acronymtype,title={Abkürzungen}]
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%             HAUPTTEIL           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
  
 %% Für den Hauptteil normale Seitenzahlen
 \pagenumbering{arabic}  % Nummerierungstyp roman | arabic
@@ -202,19 +220,17 @@ Departementsleiter }
 
 
 
-% INCLUDES der anderen Files 
-
-
 \newpage
 \startThesis
-\pagenumbering{arabic}
 
+\pagenumbering{arabic}
 
 \setcounter{page}{1} % Set the page counter to 1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%             CHAPTERS          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subfile{mainpart/1_einleitung}
 
@@ -226,6 +242,8 @@ Departementsleiter }
 
 \subfile{mainpart/4_analyse}
 
+\subfile{mainpart/5_discussion}
+
 \subfile{end/erfahrungsbericht}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -234,14 +252,15 @@ Departementsleiter }
 
 
 % Glossar ausgeben
-\clearpage
-\printglossary
-\clearpage
+%\clearpage
+%\printglossary
+%\clearpage
 
-\printglossary[type=\acronymtype]
+%\printglossary[type=\acronymtype]
 
 
 \listoffigures
+\listoftables		% Tabellenverzeichnis erstellen
 
 % Bibliography 
 
@@ -254,7 +273,7 @@ Departementsleiter }
 \subfile{anhang/erklaerung}
 \clearpage
 % Anhang falls es keinen Anhang hat dann löschen
-\chapter*{Anhang}
+%\chapter*{Anhang}
 
 \iffalse
 Nr. Kriterien Gewichtung\newline
@@ -292,11 +311,5 @@ Nr. Kriterien Gewichtung\newline
 \fi
 
 
-\includegraphics[width=350pt ]{anhang/screencapture-dashboard-heroku-apps-dinf-app-metrics-web-1517153971214.png}\newline
-
-\includegraphics[width=350pt ]{anhang/screencapture-dashboard-heroku-apps-dinf-app-metrics-web-1517156607741.png}\newline
-
-
-\includegraphics[width=350pt]{anhang/screencapture-dashboard-heroku-apps-dinf-app-metrics-web-1517160269318.png}\newline
 \end{document}
  
