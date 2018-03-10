@@ -139,7 +139,7 @@ Beim Einsetzen des Interfaces PDFEngine werden je nach Build eine der drei Imple
  \label{figure:pdfEngineImpl}
 \end{figure}
 
-Die einzelnen Szenarien wurden ebenfalls als Interfaces deklariert, damit jedes dieser Szenarios nicht anders oder nur teilweise implementiert wird. Als Basis-Klasse wurde die \texttt{AbstractScenario}-Klasse implementiert. Diese regelt den Aufbau, wie die temporären Files auf dem System abgelegt werden und wie diese wieder abgeräumt werden. Diese abstrakte Klasse übernimmt ebenfalls den Aufbau und das Handling des \texttt{PdfRequest} als Modell. Dieses Modell steht jeder Implementation über die Methode \texttt{getModel} im \texttt{AbstractSzenario} zur Verfügung (siehe Abbildung \ref{figure:szenImpl}.   
+Die einzelnen Szenarien wurden ebenfalls als Interfaces deklariert, damit jedes dieser Szenarios nicht anders oder nur teilweise implementiert wird. Als Basis-Klasse wurde die \texttt{AbstractScenario}-Klasse implementiert. Diese regelt den Aufbau, wie die temporären Files auf dem System abgelegt werden und wie diese wieder abgeräumt werden. Diese abstrakte Klasse übernimmt ebenfalls den Aufbau und das Handling des \texttt{PdfRequest} als Modell. Dieses Modell steht jeder Implementation über die Methode \texttt{getModel} im \texttt{AbstractSzenario} zur Verfügung (siehe Abbildung \ref{figure:szenImpl}).   
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth ]{pic/uml/SzenarioImplementation.jpg}
@@ -192,7 +192,7 @@ heroku restart --app dinf-app
 \end{lstlisting}
 
 \subsection{Technische Details}
-Um die Resultate dieses Experiments zu reproduzieren, sind folgende Eckdaten und Versionen nötig. 
+Um die Resultate dieses Experiments zu reproduzieren, sind folgende Eckdaten und Versionen nötig (siehe Tabelle \ref{softversion}). 
 
 
 \begin{table}[!ht]
@@ -220,7 +220,7 @@ Maven   &  3.3.9 \\
 \label{softversion}
 
 \end{table}
-Der Stand von Heroku war zum Zeitpunkt der Tests wie folgt konfiguriert (siehe Abbildung \ref{herokuversion}).
+Der Stand von Heroku war zum Zeitpunkt der Tests wie folgt konfiguriert (siehe Tabelle \ref{herokuversion}).
 \begin{table}[!hb]
 \centering
 
