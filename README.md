@@ -26,9 +26,9 @@ Die Thesis wurde als Poster zusammengefasst:
 
 Hier die Thesis : 
 
-<object data="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf">
-        This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bachelor_INF%20(3).pdf"</a> Thesis.</p>
+<object data="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bittante_Denis_Bachelor_INF.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bittante_Denis_Bachelor_INF.pdf">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/denisbittante/DINF-BT-K/blob/master/_Thesis/pdf/Bittante_Denis_Bachelor_INF.pdf"</a> Thesis.</p>
     </embed>
 </object>
 
